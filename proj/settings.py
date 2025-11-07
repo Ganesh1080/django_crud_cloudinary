@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-br@lz1*y&0_dzw9$v7v&esq!bk##dm)fcl_k18%d!)t&*6-pau
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://django-crud-cloudinary.onrender.com","/*"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
