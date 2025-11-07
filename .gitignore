@@ -1,0 +1,15 @@
+# Ignore virtual environments
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+env_backup/
+
+# Ignore environment variable files
+.env
+*.env
+.env.*
+
+# Ignore Node.js dependencies
+node_modules/
