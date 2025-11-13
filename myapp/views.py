@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import bcrypt
 from .models import new_crud
 import cloudinary
 from cloudinary import uploader
@@ -38,10 +39,15 @@ def new_register(req):
                 upload_result=cloudinary.uploader.upload(img)
                 # print(upload_result)
                 profile_url=upload_result.get('secure_url')
+            raw_pass=data.get('password')
+            encoded_pw=raw_pass.encode('utf-8')
+            print(encoded_pw)
+            hashed_password=bcrypt.hashpw(encoded_pw,bcrypt.gensalt(rounds=12)).decode('utf-8')
             payload={
                 "name":data.get('name'),
                 "email":data.get('email'),
                 "phone":data.get('number'),
+                "password":hashed_password,
                 "profile_url":profile_url,
             }
             # user_name=req.POST.get('name')
