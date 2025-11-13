@@ -40,15 +40,13 @@ def new_register(req):
                 # print(upload_result)
                 profile_url=upload_result.get('secure_url')
             raw_pass=data.get('password')
-            encoded_pw=raw_pass.encode('utf-8')
-            print(encoded_pw)
-            hashed_password=bcrypt.hashpw(encoded_pw,bcrypt.gensalt(rounds=12)).decode('utf-8')
+            hashed_password=bcrypt.hashpw(raw_pass.encode('utf-8'),bcrypt.gensalt(rounds=12)).decode('utf-8')
             payload={
                 "name":data.get('name'),
                 "email":data.get('email'),
                 "phone":data.get('number'),
-                "password":hashed_password,
                 "profile_url":profile_url,
+                "password":hashed_password
             }
             # user_name=req.POST.get('name')
             # user_mail=req.POST.get('email')

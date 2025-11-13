@@ -7,5 +7,5 @@ class new_crud(models.Model):
     name=models.CharField(max_length=50,null=True)
     email=models.CharField(max_length=100,unique=True)
     phone=models.CharField(max_length=10,unique=True)
-    password=models.CharField(max_length=10,null=True)
+    password=models.CharField(max_length=150,null=True)
     profile_url=models.URLField(blank=True, null=True)
